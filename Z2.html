@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 3. Задание 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f9ff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .task {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f7ff;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .subtask {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 2. Взаимодействие с пользователем</h1>
+    
+    <div class="task">
+        <div class="subtask">
+            <h2>Задание 2.1: Переменные admin и name</h2>
+            <p>Объявите две переменные: admin и name. Запишите в name строку "Валерия Пичикова". Скопируйте значение из name в admin. Выведите admin.</p>
+            <button onclick="task2_1()">Выполнить задание 2.1</button>
+            <div class="result" id="task2_1Result"></div>
+            
+            <h3>Код решения:</h3>
+            <pre>
+function task2_1() {
+    const name = "Валерия Пичикова";
+    const admin = name;
+    document.getElementById('task2_1Result').textContent = admin;
+}</pre>
+        </div>
+        
+        <div class="subtask">
+            <h2>Задание 2.2: Подтверждение возраста</h2>
+            <p>Скрипт спрашивает возраст и после ввода уточняет его. Если нажать "Отмена", скрипт просит ввести возраст снова.</p>
+            <button onclick="task2_2()">Проверить возраст</button>
+            <div class="result" id="task2_2Result"></div>
+            
+            <h3>Код решения:</h3>
+            <pre>
+function task2_2() {
+    let age;
+    do {
+        age = prompt("Сколько вам лет?", "");
+    } while (age === null || age === "");
+    
+    let isConfirmed = false;
+    while (!isConfirmed) {
+        isConfirmed = confirm(`Вы уверены, что вам ${age} лет?`);
+        if (!isConfirmed) {
+            age = prompt("Сколько вам лет?", "");
+        }
+    }
+    document.getElementById('task2_2Result').textContent = 
+        `Подтвержденный возраст: ${age} лет`;
+}</pre>
+        </div>
+    </div>
+
+    <script>
+        // Задание 2.1: Переменные admin и name
+        function task2_1() {
+            const name = "Валерия Пичикова";
+            const admin = name;
+            document.getElementById('task2_1Result').textContent = admin;
+        }
+        
+        // Задание 2.2: Подтверждение возраста
+        function task2_2() {
+            let age;
+            // Запрашиваем возраст, пока не будет введено значение
+            do {
+                age = prompt("Сколько вам лет?", "");
+            } while (age === null || age === "");
+            
+            // Подтверждаем возраст
+            let isConfirmed = false;
+            while (!isConfirmed) {
+                isConfirmed = confirm(`Вы уверены, что вам ${age} лет?`);
+                if (!isConfirmed) {
+                    age = prompt("Сколько вам лет?", "");
+                }
+            }
+            
+            // Выводим результат
+            document.getElementById('task2_2Result').textContent = 
+                `Подтвержденный возраст: ${age} лет`;
+        }
+    </script>
+</body>
+</html>

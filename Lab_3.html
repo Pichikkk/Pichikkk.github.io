@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пичикова Валерия Викторовна</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0a0f24;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #7f00ff, #e100ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .constellation {
+            font-size: 1.2em;
+            color: #89c4f4;
+            margin-bottom: 30px;
+        }
+
+        .about {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #1a1f3a;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #2d325a;
+        }
+
+        h2 {
+            color: #7f00ff;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #89c4f4;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Пичикова Валерия Викторовна</h1>
+            <div class="constellation">
+                "Созвездие талантов в цифровой вселенной"
+            </div>
+        </header>
+
+        <section class="about">
+            <h2>Обо мне</h2>
+            <p>
+                Как созвездие Дракона, я постоянно развиваюсь и освещаю новые горизонты. 
+                Специалист в области веб-разработки и цифровых технологий. 
+                Моя миссия — создавать решения, которые сочетают элегантность кода 
+                и магию пользовательского опыта.
+            </p>
+        </section>
+
+        <div class="grid">
+            <section class="card">
+                <h2>Навыки</h2>
+                <ul>
+                    <li>HTML5 / CSS3 (адаптивная вёрстка)</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js / Vue.js</li>
+                    <li>Node.js / Express</li>
+                    <li>UI/UX Design</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Опыт</h2>
+                <ul>
+                    <li>Веб-разработчик в StarTech (2021-н.в.)</li>
+                    <li>Фриланс-проекты (2019-2021)</li>
+                    <li>Стажировка в DigitalGalaxy</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Достижения</h2>
+                <ul>
+                    <li>Запуск 15+ успешных веб-проектов</li>
+                    <li>Оптимизация производительности на 40%</li>
+                    <li>Наставник для junior-разработчиков</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Анимация звёздного неба
+        function createStars() {
+            const container = document.getElementById('stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(star);
+            }
+        }
+        createStars();
+    </script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме | Валерия Пичикова | Инженер-программист</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            background: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 30px;
+        }
+
+        body.dark-theme {
+            background: #121212;
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 100, 200, 0.1);
+            overflow: hidden;
+        }
+
+        .dark-theme .container {
+            background: #1e1e1e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .dark-theme .header {
+            background: linear-gradient(135deg, #2a5a78 0%, #006d75 100%);
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 20px auto;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .position {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #4facfe;
+        }
+
+        .dark-theme .section {
+            background: #2a2a2a;
+            border-left: 5px solid #2a5a78;
+        }
+
+        h2 {
+            color: #2c7be5;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        .dark-theme h2 {
+            color: #4facfe;
+        }
+
+        h2:before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00d2a0;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .dark-theme h2:before {
+            background: #00a78b;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .experience {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .experience {
+            background: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience h3 {
+            color: #2c7be5;
+            margin-bottom: 10px;
+        }
+
+        .dark-theme .experience h3 {
+            color: #4facfe;
+        }
+
+        .experience-period {
+            color: #00d2a0;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .dark-theme .experience-period {
+            color: #00a78b;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 12px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #4facfe;
+            border-radius: 50%;
+        }
+
+        .dark-theme li:before {
+            background: #2a5a78;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: #e6f7ff;
+            color: #2c7be5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .dark-theme .skill {
+            background: #2a3a4a;
+            color: #89c4f4;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .contact-form {
+            background: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c7be5;
+            font-weight: 500;
+        }
+
+        .dark-theme label {
+            color: #4facfe;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
+            color: #333;
+        }
+
+        .dark-theme input,
+        .dark-theme textarea {
+            background: #2a2a2a;
+            border-color: #444;
+            color: #f0f0f0;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #4facfe;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+        }
+
+        .dark-theme input:focus,
+        .dark-theme textarea:focus {
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.4);
+        }
+
+        button {
+            background: linear-gradient(to right, #4facfe, #00d2a0);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 210, 160, 0.3);
+            margin: 5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 210, 160, 0.4);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f0f0f0;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .dark-theme .theme-toggle {
+            background: #333;
+            color: #f0f0f0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e6f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c7be5;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .dark-theme .social-link {
+            background: #2a3a4a;
+            color: #89c4f4;
+        }
+
+        .social-link:hover {
+            background: #4facfe;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+    
+    <div class="container">
+        <header class="header">
+            <img src="C:\Users\Admin\Desktop\Я.jpeg" alt="Фото Валерии Пичиковой" class="photo">
+            <h1>Валерия Пичикова</h1>
+            <div class="position">Инженер-программист</div>
+        </header>
+
+        <div class="content">
+            <div class="section">
+                <h2>Обо мне</h2>
+                <p>Инженер-программист с релевантным опытом в разработке сложных веб-приложений и облачных решений.</p>
+            </div>
+
+            <div class="section">
+                <h2>Навыки</h2>
+                <div class="skills">
+                    <div class="skill">Python</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">TypeScript</div>
+                    <div class="skill">React</div>
+                    <div class="skill">Node.js</div>
+                    <div class="skill">Docker</div>
+                    <div class="skill">Git</div>
+                    <div class="skill">CI/CD</div>
+                    <div class="skill">Алгоритмы</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Образование</h2>
+                <div class="experience">
+                    <h3>Московский государственный технологический университет "СТАНКИН"</h3>
+                    <span class="experience-period">2022 - 2026</span>
+                    <p>Институт цифровых интеллектуальных систем "Автоматизация технологических процессов и производств"</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Связаться со мной</h2>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Иван Иванов">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="example@mail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" rows="5" placeholder="Ваше сообщение..."></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit">Отправить сообщение</button>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/Lerkins44" class="social-link">tg</a>
+                    <a href="https://github.com/Pichikkk" class="social-link">gh</a>
+                    <a href="mailto:vpichikova@bk.ru" class="social-link">✉</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Обработка формы
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Сообщение отправлено! Я свяжусь с вами в ближайшее время.');
+            form.reset();
+        });
+
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Проверяем сохранённую тему в localStorage
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+            updateToggleIcon();
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-theme');
+            
+            // Сохраняем выбор темы
+            const theme = body.classList.contains('dark-theme') ? 'dark-theme' : '';
+            localStorage.setItem('theme', theme);
+            
+            updateToggleIcon();
+        });
+
+        function updateToggleIcon() {
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '🌞';
+            } else {
+                themeToggle.textContent = '🌜';
+            }
+        }
+    </script>
+</body>
+</html>

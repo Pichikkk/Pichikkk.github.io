@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 3. Задание 1</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f9ff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .task {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .result {
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f7ff;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 1. Переменные и функции</h1>
+    
+    <div class="task">
+        <h2>Функция min(a, b) - нахождение минимума</h2>
+        <p>Реализация функции для нахождения минимального из двух чисел:</p>
+        
+        <input type="number" id="num1" placeholder="Введите первое число">
+        <input type="number" id="num2" placeholder="Введите второе число">
+        
+        <button onclick="findMin()">Найти минимум</button>
+        
+        <div class="result" id="minResult">Результат появится здесь...</div>
+        
+        <h3>Код функции:</h3>
+        <pre>
+function min(a, b) {
+    return a < b ? a : b;
+}</pre>
+    </div>
+
+    <script>
+        // Функция для нахождения минимума двух чисел
+        function min(a, b) {
+            return a < b ? a : b;
+        }
+        
+        // Функция для обработки ввода и вывода результата
+        function findMin() {
+            // Получаем значения из полей ввода
+            const a = Number(document.getElementById('num1').value);
+            const b = Number(document.getElementById('num2').value);
+            
+            // Проверяем, что введены числа
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('minResult').textContent = "Пожалуйста, введите оба числа!";
+                return;
+            }
+            
+            // Вызываем функцию min() и выводим результат
+            const result = min(a, b);
+            document.getElementById('minResult').textContent = 
+                `Минимальное число между ${a} и ${b} = ${result}`;
+        }
+    </script>
+</body>
+</html>
