@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 3. Задание 3</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f9ff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .resume-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .resume-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .resume-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+            margin: 0 auto 15px;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .resume-name {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .resume-title {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .resume-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .resume-section h2 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .controls {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex-grow: 1;
+            min-width: 200px;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        #colorChangeBtn {
+            background: #e74c3c;
+        }
+        
+        #colorChangeBtn:hover {
+            background: #c0392b;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 3. Стилизация страницы</h1>
+    
+    <div class="resume-container" id="resume">
+        <div class="resume-header">
+            <img src="photo.jpg" alt="Фото" class="resume-photo" id="resumePhoto">
+            <h1 class="resume-name" id="resumeName">Валерия Пичикова</h1>
+            <p class="resume-title">Инженер-программист</p>
+        </div>
+        
+        <div class="resume-section">
+            <h2>О себе</h2>
+            <p>Студентка Московского государственного технологического университета "СТАНКИН". Обучаюсь по специальности "Автоматизация технологических процессов и производств". Интересуюсь веб-разработкой и программированием.</p>
+        </div>
+        
+        <div class="resume-section">
+            <h2>Навыки</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Python, C++</li>
+                <li>Работа с Git</li>
+                <li>Основы SQL</li>
+            </ul>
+        </div>
+        
+        <div class="controls">
+            <input type="text" id="newLastName" placeholder="Введите новую фамилию">
+            <button onclick="changeLastName()">Изменить фамилию</button>
+            <button id="colorChangeBtn" onclick="changeRandomColor()">Сменить цвет фона</button>
+        </div>
+    </div>
+    
+    <div class="code-example">
+        <h3>Код JavaScript для задания:</h3>
+        <pre>
+// Функция изменения фамилии
+function changeLastName() {
+    const newName = document.getElementById('newLastName').value;
+    if (newName) {
+        document.getElementById('resumeName').textContent = `Валерия ${newName}`;
+    }
+}
+
+// Функция смены случайного цвета
+function changeRandomColor() {
+    const colors = ['#f0f8ff', '#fff0f5', '#f0fff0', '#fff8dc', '#f5f5f5'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById('resume').style.backgroundColor = randomColor;
+}</pre>
+    </div>
+
+    <script>
+        // Функция изменения фамилии
+        function changeLastName() {
+            const newName = document.getElementById('newLastName').value;
+            if (newName) {
+                document.getElementById('resumeName').textContent = `Валерия ${newName}`;
+                document.getElementById('newLastName').value = ''; // Очищаем поле ввода
+            }
+        }
+        
+        // Функция смены случайного цвета фона резюме
+        function changeRandomColor() {
+            const colors = [
+                '#f0f8ff', '#fff0f5', '#f0fff0', '#fff8dc', 
+                '#f5f5f5', '#e6e6fa', '#ffe4e1', '#f0ffff'
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('resume').style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
